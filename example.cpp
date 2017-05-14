@@ -3,7 +3,7 @@
 #include <cstdio>
 #include "FibonacciHeap.h"
 
-int compara(int a, int b) {
+int compar(int a, int b) {
 	return a-b;
 }
 
@@ -11,20 +11,20 @@ int main() {
 	srand(time(NULL));
 	int a;
 	
-	FibonacciHeap<int> *fh = new FibonacciHeap<int>(compara);
+	FibonacciHeap<int> *fh = new FibonacciHeap<int>(compar);
 	
 	for (int i=0; i<2; i++) {
 		for (int j=0; j<4; j++) {
 			a = rand()%100;
-			printf("inserindo %d\n",a);
+			printf("inserting %d\n",a);
 			fh->push(a);
 		}
 	
 		for (int j=0; j<2; j++) {
-			printf("%d removido\n",fh->pop());
+			printf("pop's return: %d\n",fh->pop());
 		}
-		printf("\n%d elementos no heap\n",fh->size());
-		printf("top: %d\n\n",fh->top());
+		printf("\nthe fibonacci heap has %d elements\n",fh->size());
+		printf("element in the top: %d\n\n",fh->top());
 	}
 	
 	fh->reset();

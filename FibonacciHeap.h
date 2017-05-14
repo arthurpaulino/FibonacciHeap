@@ -179,7 +179,7 @@ public:
 		if (menor->prox != 0) menor->prox->ant = menor->ant;
 		lista_vira_raiz(menor->filho);
 		if (H == menor) H = menor->prox;
-		free(menor);
+		delete menor;
 		nElements--;
 		if (nElements>0) {
 			consolida();
@@ -193,6 +193,10 @@ public:
 		H = 0;
 		menor = 0;
 		nElements = 0;
+	}
+	
+	virtual ~FibonacciHeap() {
+		clear_recursivo(H);
 	}
 };
 
