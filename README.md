@@ -18,6 +18,12 @@ FibonacciHeap<int> *fh = new FibonacciHeap<int>(compar);
 fh->push(5);
 ```
 
+* Popping
+
+```cpp
+int pop = fh->pop();
+```
+
 * Size verification
 
 ```cpp
