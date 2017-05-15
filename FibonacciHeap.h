@@ -19,7 +19,7 @@ private:
 
 	Node *H, *menor;
 	int nElements;
-	int (*f)(T, T);
+	int (*compar)(T, T);
 		
 	void lista_vira_raiz(Node *l) {
 		if (l!=0) {
@@ -41,14 +41,14 @@ private:
 		menor = H;
 		Node *aux = H;
 		while (aux != 0)	{
-			if (f(aux->conteudo,menor->conteudo) < 0) menor = aux;
+			if (compar(aux->conteudo,menor->conteudo) < 0) menor = aux;
 			aux = aux->prox;
 		}	
 	}
 
 	Node *link(Node *a, Node *b) {
 		Node *maior_no, *menor_no;
-		if (f(a->conteudo,b->conteudo) > 0) {
+		if (compar(a->conteudo,b->conteudo) > 0) {
 			maior_no = a;
 			menor_no = b;
 		}
@@ -149,7 +149,7 @@ private:
 		
 public:
 	
-	FibonacciHeap(int (*f)(T, T)):H(0),menor(0),nElements(0),f(f){}
+	FibonacciHeap(int (*compar)(T, T)):H(0),menor(0),nElements(0),compar(compar){}
 
 	int size() {return nElements;}
 
@@ -167,7 +167,7 @@ public:
 			aux->prox = H;
 			H->ant = aux;
 			H = aux;
-			if (f(aux->conteudo,menor->conteudo) < 0) menor = aux;
+			if (compar(aux->conteudo,menor->conteudo) < 0) menor = aux;
 		}
 		nElements++;
 	}
