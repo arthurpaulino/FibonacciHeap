@@ -1,5 +1,4 @@
-FibonacciHeap
-=============
+# FibonacciHeap
 An implementation of the *minimum fibonacci heap* data structure written in C++. The constructor requires a pointer to a comparision function.
 * Instantiation
 ```cpp
